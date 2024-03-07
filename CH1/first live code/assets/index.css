@@ -1,0 +1,47 @@
+body {
+}
+#title {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 150vh;
+}
+
+.feature {
+  border-right: 1px solid black;
+}
+
+.button-primary-outline {
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  border: 1px solid #933393;
+  border-radius: 8px;
+  align-items: center;
+  padding: 17px 16px;
+  display: flex;
+}
+.link-block-20 {
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+  text-decoration: none;
+  display: flex;
+}
+
+.carousel {
+  background: yellow;
+  margin: auto;
+  width: 600px;
+  height: 280px;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

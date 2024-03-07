@@ -1,5 +1,3 @@
-// alert('test 123')   
-
 let randomNUm1 = Math.floor(Math.random() * 6) +1;
 console.log(randomNUm1);
 
@@ -25,5 +23,3 @@ if(randomNUm1 > randomNUm2){
 } else{
     document.querySelector("h1").innerText = "The Result is draw!!"
 }
-// let win = document.getElementById('win');
-// win.setAttribute('value', "pemengang");

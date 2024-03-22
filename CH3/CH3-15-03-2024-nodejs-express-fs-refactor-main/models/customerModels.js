@@ -12,15 +12,18 @@ const custSchema = new mongoose.Schema({
         required: [true, "Email cannot be empty"],
         default: "aaa@example.com"
     },
-    phone: {
+    role: {
         type: String,
-        required: true,
-        unique: true,
+        enum: ["admin", "user"],
+        default: "user"
     },
-    city: {
+    active: {
+        type: Boolean,
+        default: true
+    },
+    photo: {
         type: String,
-        required: true,
-        default: "Konoha"
+        default: "user-default.jpg"
     },
     country: {
         type: String,

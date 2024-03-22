@@ -1,0 +1,47 @@
+[
+    {
+        "_id": "65fda5e078fd5cda4c2bbdde",
+        "name": "Neal Ellison",
+        "email": "nealellison@providco.com",
+        "role": "admin",
+        "active": false,
+        "photo": "user-4.jpg",
+        "password": ""
+    },
+    {
+        "_id": "65fda5e0e78aa569f6e4d971",
+        "name": "Barton Finch",
+        "email": "bartonfinch@providco.com",
+        "role": "admin",
+        "active": true,
+        "photo": "user-5.jpg",
+        "password": ""
+    },
+    {
+        "_id": "65fda5e0f1a000dc57dfba6d",
+        "name": "Bobbi Higgins",
+        "email": "bobbihiggins@providco.com",
+        "role": "admin",
+        "active": false,
+        "photo": "user-5.jpg",
+        "password": ""
+    },
+    {
+        "_id": "65fda5e0eaf09937736a57f4",
+        "name": "Sheila French",
+        "email": "sheilafrench@providco.com",
+        "role": "user",
+        "active": false,
+        "photo": "user-3.jpg",
+        "password": ""
+    },
+    {
+        "_id": "65fda5e0ba47c5b407ca3cfe",
+        "name": "Solomon Tyson",
+        "email": "solomontyson@providco.com",
+        "role": "admin",
+        "active": false,
+        "photo": "user-4.jpg",
+        "password": ""
+    }
+]

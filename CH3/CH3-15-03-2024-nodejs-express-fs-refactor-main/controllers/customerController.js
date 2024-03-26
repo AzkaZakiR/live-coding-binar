@@ -6,14 +6,48 @@ const getCustomers = async (req, res, next) => {
   console.log(req.query)
 
   try {
-    const query = { ...req.query };
+    const queryObj = { ...req.query };
     const excludeColumn = ['page', 'sort', 'limit', 'fields'];
-    excludeColumn.forEach(el => delete query[el]);
+    excludeColumn.forEach(el => delete queryObj[el]);
 
-    const customers = await Customer.find(
-      query
-    )
-    // console.log(req.requestTime);
+
+    let queryStr = JSON.stringify(queryObj)
+    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`); // =>$gt, $gte, $lte
+    console.log(JSON.parse(queryStr))
+    queryStr = JSON.parse(queryStr);
+
+    let query = Customer.find(queryStr);
+
+    //sorting
+    if (req.query.sort) {
+      const sortBy = req.query.sort.split(',').join(' ');
+      console.log(sortBy)
+      query = query.sort(sortBy);
+    } else {
+      query = query.sort("createdAt")
+    }
+
+    //fields limiting
+    if (req.query.fields) {
+      const fields = req.query.fields.split(',').join(' ');
+      query = query.select(fields)
+    } else {
+      query = query.select("-password, -__v")
+    }
+    // const customers = await Customer.find(queryStr)
+
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || 2;
+    const skip = (page - 1) * limit;
+    query = query.skip(skip).limit(limit);
+
+    let newCust;
+    if (req.query.page) {
+      newCust = await Customer.countDocuments();
+      if (skip > newCust) throw new Error("Page does not exist");
+    }
+    const customers = await query;
+
     res.status(200).json({
       status: "success",
       totalData: customers.length,
@@ -21,6 +55,7 @@ const getCustomers = async (req, res, next) => {
       data: {
         customers,
       },
+      totalPage: newCust
     });
   } catch (error) {
     res.status(400).json({

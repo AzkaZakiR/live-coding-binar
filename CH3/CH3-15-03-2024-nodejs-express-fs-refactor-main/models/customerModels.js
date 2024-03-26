@@ -25,11 +25,16 @@ const custSchema = new mongoose.Schema({
         type: String,
         default: "user-default.jpg"
     },
-    country: {
+    password: {
         type: String,
-        required: true,
-        default: "Naruto"
     },
+    createdAt: {
+        type: Date,
+        default: Date.now()
+    },
+    age: {
+        type: Number,
+    }
 })
 
 const Customer = mongoose.model("Customer", custSchema);

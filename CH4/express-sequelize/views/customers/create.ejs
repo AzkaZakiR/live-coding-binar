@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+   <body>
+      <h1>hello this is create customer</h1>
+      <!-- <form action="/customers/admin/create" method="POST"> -->
+      <form action="/admin/edit/<% customer.id %>" method="POST">
+         <label for="">Email</label>
+         <input
+            type="text"
+            name="email"
+            id=""
+            value="
+         <% customer.email %>"
+         />
+         <button type="submit">submit</button>
+      </form>
+      <table>
+         <th>id</th>
+         <th>name</th>
+         <th>age</th>
+         <th>city</th>
+         <th>email</th>
+         <th>created AT</th>
+      </table>
+   </body>
+</html>
